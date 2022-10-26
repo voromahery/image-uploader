@@ -29,52 +29,94 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
 }
 
-/* App */
-.wrapper {
-  padding: 2rem;
+.uploader-input {
+  display: none;
 }
 
-.counter {
-  padding: 3rem 0;
+.wrapper {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.image-container,
+.card-wrapper,
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-wrapper {
+  width: 100%;
+  max-width: 402px;
+  height: 469px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 36px 32px;
+}
+
+header h3 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  color: #4f4f4f;
+  margin-bottom: 16px;
+}
+
+header p {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 15px;
+  color: #828282;
+  margin-bottom: 30px;
+}
+
+.image-container {
+  width: 100%;
+  max-width: 338px;
+  height: 219px;
+  background-color: #f6f8fb;
+  border: 1px dashed #97bef4;
+  border-radius: 12px;
+  cursor: pointer;
+  background-image: url("../img/image.svg");
+  background-repeat: no-repeat;
+  background-position: center 35.84px;
+  justify-content: end;
+}
+
+.image-container p {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  color: #bdbdbd;
+  margin-bottom: 40px;
+}
+
+span {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  color: #bdbdbd;
+  margin: 19px 0 22px 0;
 }
 
 button {
+  color: #ffffff;
+  padding: 8px 16px;
+  background-color: #2f80ed;
+  border-radius: 8px;
   border: none;
-  border-radius: 1rem;
-  color: white;
-  text-align: center;
-  padding: 2rem 3rem;
-  text-decoration: none;
-  font-size: 2rem;
   cursor: pointer;
 }
 
-button:focus {
-  outline: thin dotted;
-}
-
-.inc {
-  background-color: rgba(0, 140, 186, 1); /* Blue */
-}
-
-.inc:hover {
-  background-color: rgba(0, 140, 186, 0.8);
-}
-
-.dec {
-  background-color: rgba(244, 67, 54, 1); /* Red */
-}
-
-.dec:hover {
-  background-color: rgba(244, 67, 54, 0.8);
-}
-
-.val {
-  font-size: 6rem;
-  font-weight: lighter;
-  text-align: center;
-  width: 12rem;
-  height: 8rem;
+@media (min-width: 550px) {
+  .wrapper {
+    margin: 0;
+    justify-content: center;
+    height: 100vh;
+  }
 }

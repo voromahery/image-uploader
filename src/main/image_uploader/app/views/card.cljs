@@ -1,11 +1,12 @@
 (ns image-uploader.app.views.card)
 
 (defn card []
-  [:div.wrapper
+  [:div.card-wrapper
    [:header
     [:h3 "Upload your image"]
     [:p "File should be Jpeg, Png,..."]]
-   [:div.image-container
-    [:h3 "Image here"]]
+   [:label {:class "image-container" :for "uploader"}
+    [:input {:type "file" :accept "image/*" :id "uploader" :class "uploader-input"}]
+    [:p "Drag & Drop your image here"]]
    [:span "or"]
-   [:button "Choose a file"]])
+   [:button.upload-button "Choose a file"]])

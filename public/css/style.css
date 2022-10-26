@@ -34,7 +34,14 @@ body {
   display: none;
 }
 
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .wrapper {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -158,10 +165,32 @@ button {
   }
 }
 
+footer {
+  padding: 24px 0;
+}
+
+footer,
+footer a,
+footer span {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #a9a9a9;
+  text-decoration: none;
+}
+
+footer .developer {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 @media (min-width: 550px) {
-  .wrapper {
-    margin: 0;
-    justify-content: center;
+  .main {
     height: 100vh;
+    justify-content: center;
+  }
+  .wrapper {
+    margin-bottom: auto;
   }
 }

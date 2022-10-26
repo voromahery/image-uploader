@@ -18,9 +18,17 @@
 (println @file)
 
 (defn app []
-  [:div.wrapper
-   [loader]
-   [card upload-image]])
+
+
+  [:div.main
+
+   [:div.wrapper
+    [loader]
+    [card upload-image]]
+   [:footer
+    [:p
+     "created by " [:a {:href "https://github.com/voromahery" :class "developer"} "H.Fabrice Daniel"] " - "
+     [:a {:href "https://devchallenges.io"} " devChallenges.io"]]]])
 
 ;; --- Render App ---
 

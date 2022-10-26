@@ -191,6 +191,6 @@ footer .developer {
     justify-content: center;
   }
   .wrapper {
-    margin-bottom: auto;
+    margin: auto;
   }
 }

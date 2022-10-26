@@ -6,25 +6,22 @@
 
 ;; --- App State ---
 (def file (r/atom nil))
+(def loading (r/atom false))
 
 ;; --- Utility Functions ---
 (defn upload-image [event]
-  (reset! file (-> event .-target .-files (aget 0)))
-  (println (get (-> event .-target .-files (aget 0)) :name)))
-
+  (reset! loading true)
+  ;; (reset! file (-> event .-target .-files (aget 0)))
+  (println (.stringify js/JSON (-> event .-target .-files)))
+  (js/setTimeout (fn []
+                   (reset! loading false)) 2000))
 
 ;; --- App Component ---
 
-(println @file)
-
 (defn app []
-
-
   [:div.main
-
    [:div.wrapper
-    [loader]
-    [card upload-image]]
+    (if (= @loading true)    [loader]  [card upload-image])]
    [:footer
     [:p
      "created by " [:a {:href "https://github.com/voromahery" :class "developer"} "H.Fabrice Daniel"] " - "

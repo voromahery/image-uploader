@@ -4,16 +4,18 @@
             [image-uploader.app.views.card :refer [card]]))
 
 ;; --- App State ---
-
+(def file (r/atom nil))
 
 ;; --- Utility Functions ---
-
+(defn upload-image [event]
+  (reset! file (-> event .-target .-files (aget 0)))
+  (println (get @file :name)))
 
 ;; --- App Component ---
 
 (defn app []
   [:div.wrapper
-   [card]])
+   [card upload-image]])
 
 ;; --- Render App ---
 

@@ -5,23 +5,27 @@
             [image-uploader.app.views.loader :refer [loader]]))
 
 ;; --- App State ---
-(def file (r/atom nil))
+(def img-id "uploaded-image")
 (def loading (r/atom false))
+(def image-preview (r/atom nil))
 
 ;; --- Utility Functions ---
 (defn upload-image [event]
-  (reset! loading true)
-  ;; (reset! file (-> event .-target .-files (aget 0)))
-  (println (.stringify js/JSON (-> event .-target .-files)))
-  (js/setTimeout (fn []
-                   (reset! loading false)) 2000))
+  (let [file (-> event .-target .-files (aget 0))
+        file-reader (js/FileReader.)]
+    (set! (.-onload file-reader)
+          (fn [event]
+            (reset! image-preview (-> event .-target .-result))))
+    (.readAsDataURL file-reader file)))
 
 ;; --- App Component ---
 
 (defn app []
   [:div.main
    [:div.wrapper
-    (if (= @loading true)    [loader]  [card upload-image])]
+    (if (= @loading true)
+      [loader]
+      [card upload-image image-preview])]
    [:footer
     [:p
      "created by " [:a {:href "https://github.com/voromahery" :class "developer"} "H.Fabrice Daniel"] " - "

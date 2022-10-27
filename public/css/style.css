@@ -94,6 +94,7 @@ header p {
   background-repeat: no-repeat;
   background-position: center 35.84px;
   justify-content: end;
+  overflow: hidden;
 }
 
 .image-container p {
@@ -163,6 +164,10 @@ button {
   100% {
     transform: translateX(336.36px);
   }
+}
+
+.image-preview {
+  height: 100%;
 }
 
 footer {

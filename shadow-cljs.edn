@@ -13,7 +13,7 @@
  {:app         ;; this is the `build-id` used in shadow-cljs commands, e.g. `shadow-cljs watch app`
   {:target     :browser
    :output-dir "public/js"
-   :asset-path "/"
+   :asset-path "public"
    :modules
    {:main      ;; <- becomes `public/js/main.js`
     {:init-fn  image-uploader.app.core/main}}}  ;; relative to the `src/main` source path

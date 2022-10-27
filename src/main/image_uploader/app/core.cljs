@@ -10,6 +10,7 @@
 (def image-preview (r/atom nil))
 
 ;; --- Utility Functions ---
+
 (defn upload-image [event]
   (let [file (-> event .-target .-files (aget 0))
         file-reader (js/FileReader.)]

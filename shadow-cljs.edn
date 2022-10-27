@@ -4,7 +4,9 @@
 
  :dependencies
  [[reagent            "1.0.0"]
-  [binaryage/devtools "1.0.2"]]
+  [binaryage/devtools "1.0.2"]
+  [metosin/komponentit "0.3.11"]
+  [funcool/promesa "9.0.489"]]
 
  :dev-http                ;; start a development http server
  {3000         "public"}  ;; on `http://localhost:3000`

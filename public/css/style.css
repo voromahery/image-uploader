@@ -113,7 +113,8 @@ span {
   margin: 19px 0 22px 0;
 }
 
-button {
+button,
+.upload-button {
   color: #ffffff;
   padding: 8px 16px;
   background-color: #2f80ed;

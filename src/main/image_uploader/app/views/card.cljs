@@ -1,7 +1,6 @@
-(ns image-uploader.app.views.card
-  (:require [goog.string :as str]))
+(ns image-uploader.app.views.card)
 
-(defn card [upload-image image-preview]
+(defn card [upload-image image-preview copy-url url]
   [:div.card-wrapper
    [:header
     (if @image-preview
@@ -14,14 +13,14 @@
        [:p "File should be Jpeg, Png,..."]])]
 
    [:label {:class "image-container" :for "uploader"}
-    (if @image-preview [:img {:src @image-preview :class "image-preview"}] [:p "Drag & Drop your image here"])
-    [:input {:type "file" :accept "image/*" :id "uploader" :class "uploader-input" :on-change upload-image}]]
+    (if @image-preview [:img {:src @image-preview :class "image-preview"}] [:p "Drag & Drop your image here"])]
+   [:input {:type "file" :accept "image/*" :id "uploader" :class "uploader-input" :on-change upload-image}]
 
    (if @image-preview
      [:div.success-form
-      [:input {:type "text" :value (str (-> js/window .-location .-href) @image-preview) :on-change nil}]
-      [:button "Copy link"]]
+      [:input {:type "text" :value @url :on-change nil}]
+      [:button {:on-click copy-url} "Copy link"]]
 
      [:<>
       [:span "or"]
-      [:button.upload-button "Choose a file"]])])
+      [:label {:class "upload-button" :for "uploader"} "Choose a file"]])])

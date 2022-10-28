@@ -10,6 +10,7 @@
 (def loading (r/atom false))
 (def image-preview (r/atom nil))
 (def url (r/atom ""))
+(def is-copied (r/atom false))
 
 ;; --- Utility Functions ---
 (defn upload-image [event]
@@ -22,7 +23,8 @@
     (.readAsDataURL file-reader file)))
 
 (defn copy-url []
-  (clipboard/copy-text @url))
+  (clipboard/copy-text @url)
+  (reset! is-copied true))
 
 ;; --- App Component ---
 (defn app []
@@ -30,7 +32,7 @@
    [:div.wrapper
     (if (= @loading true)
       [loader]
-      [card upload-image image-preview copy-url url])]
+      [card upload-image image-preview copy-url url is-copied])]
    [:footer
     [:p
      "created by " [:a {:href "https://github.com/voromahery" :class "developer"} "H.Fabrice Daniel"] " - "

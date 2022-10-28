@@ -1,6 +1,6 @@
 (ns image-uploader.app.views.card)
 
-(defn card [upload-image image-preview copy-url url]
+(defn card [upload-image image-preview copy-url url is-copied]
   [:div.card-wrapper
    [:header
     (if @image-preview
@@ -19,7 +19,7 @@
    (if @image-preview
      [:div.success-form
       [:input {:type "text" :value @url :on-change nil}]
-      [:button {:on-click copy-url} "Copy link"]]
+      [:button {:on-click copy-url}  (if @is-copied "Copied!" "Copy link")]]
 
      [:<>
       [:span "or"]

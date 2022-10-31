@@ -6,7 +6,8 @@
  [[reagent            "1.0.0"]
   [binaryage/devtools "1.0.2"]
   [metosin/komponentit "0.3.11"]
-  [funcool/promesa "9.0.489"]]
+  [funcool/promesa "9.0.489"]
+  [cljs-http "0.1.46"]]
 
  :dev-http                ;; start a development http server
  {3000         "public"}  ;; on `http://localhost:3000`
@@ -14,6 +15,7 @@
  :builds
  {:app         ;; this is the `build-id` used in shadow-cljs commands, e.g. `shadow-cljs watch app`
   {:target     :browser
+   :auto-bundle :webpack
    :output-dir "public/js"
    :asset-path "public"
    :modules

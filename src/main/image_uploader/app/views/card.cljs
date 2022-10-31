@@ -12,7 +12,8 @@
        [:h3 "Upload your image"]
        [:p "File should be Jpeg, Png,..."]])]
 
-   [:label {:class "image-container" :for "uploader"}
+   [:label {:class "image-container" :for "uploader" :style {:border (if @image-preview  "none" "1px dashed #97bef4")
+                                                             :background-color (if @image-preview  "#fff" "#f6f8fb")}}
     (if @image-preview [:img {:src @image-preview :class "image-preview"}] [:p "Drag & Drop your image here"])]
    [:input {:type "file" :accept "image/*" :id "uploader" :class "uploader-input" :on-change upload-image}]
 
